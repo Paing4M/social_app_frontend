@@ -1,8 +1,8 @@
 import MoonLoader from 'react-spinners/ClipLoader'
 
 const override = {
-	display: 'block',
-	margin: '0 auto',
+	// display: 'inline-block',
+	// margin: '0 auto',
 }
 
 const Loader = ({ LoadindStyle, color, loadingState, size }) => {

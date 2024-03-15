@@ -21,9 +21,10 @@ export const userSlice = createSlice({
 		removeUser: (state) => {
 			state.user = null
 			removeLocatStorage('user')
+			removeLocatStorage('token')
 		},
 	},
 })
 
-export const { setUser } = userSlice.actions
+export const { setUser, removeUser } = userSlice.actions
 export default userSlice.reducer

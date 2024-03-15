@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getLocatStorage } from '../helpers/localStorage'
 
 const axiosInstance = axios.create({
 	baseURL: import.meta.env.VITE_API_URL,
@@ -12,7 +13,7 @@ axiosInstance.get('/sanctum/csrf-cookie').then((response) => {
 
 axiosInstance.interceptors.request.use(
 	async (config) => {
-		let token = ''
+		const token = getLocatStorage('token')
 		let headers = {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',

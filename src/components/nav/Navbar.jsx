@@ -7,11 +7,22 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import MobileNav from './MobileNav'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from 'react-redux'
+import { logoutService } from '../../services/auth'
+import { useDispatch } from 'react-redux'
+import { removeUser } from '../../slices/userSlice'
 
 const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false)
 	const user = useSelector((state) => state.user.user)
-	console.log(user)
+	const dispatch = useDispatch()
+
+	const logout = () => {
+		logoutService().then((res) => {
+			if (res.status == 200) {
+				dispatch(removeUser())
+			}
+		})
+	}
 
 	return (
 		<div className='bg-primary sticky top-0  shadow-md'>
@@ -53,12 +64,15 @@ const Navbar = () => {
 							className='dropdown-content z-[1] menu p-2 shadow  rounded-md w-52 bg-white border border-gray-200 '
 						>
 							<li className='hover:bg-blue-200 rounded-md'>
-								<a>Logout</a>
+								<button onClick={logout}>Logout</button>
 							</li>
 						</ul>
 					</div>
 				) : (
-					<Link className='cursor-pointer flex items-center px-8 py-1 bg-color rounded-md border-none outline-none text-[16px] font-semibold text-white'>
+					<Link
+						to={'/login'}
+						className='cursor-pointer flex items-center px-8 py-1 bg-color rounded-md border-none outline-none text-[16px] font-semibold text-white'
+					>
 						Login
 					</Link>
 				)}

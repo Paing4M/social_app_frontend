@@ -73,12 +73,9 @@ const RegisterForm = () => {
 			/>
 
 			<div className='flex items-center justify-between'>
-				<p className='leading-tight text-sm'>
-					Already have an account?{' '}
-					<Link to={'/login'} className='font-semibold  text-color'>
-						Login here.
-					</Link>
-				</p>
+				<Link to={'/login'} className='font-semibold text-sm text-color'>
+					Already have an account?
+				</Link>
 			</div>
 
 			<button

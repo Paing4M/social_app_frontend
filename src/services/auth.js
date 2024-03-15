@@ -17,3 +17,13 @@ export const resendEmailVerificationService = async (data) => {
 	)
 	return res.data
 }
+
+export const loginService = async (data) => {
+	const res = await axiosInstance.post('/api/login', data)
+	return res.data
+}
+
+export const logoutService = async () => {
+	const res = await axiosInstance.get('/api/logout')
+	return res.data
+}
