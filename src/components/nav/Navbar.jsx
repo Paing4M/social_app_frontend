@@ -6,14 +6,12 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import MobileNav from './MobileNav'
 import { faX } from '@fortawesome/free-solid-svg-icons'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
 	const [navOpen, setNavOpen] = useState(false)
-
-	const user = {
-		type: 1,
-	}
-	// const user = null
+	const user = useSelector((state) => state.user.user)
+	console.log(user)
 
 	return (
 		<div className='bg-primary sticky top-0  shadow-md'>
@@ -46,7 +44,7 @@ const Navbar = () => {
 								alt=''
 							/>
 
-							<span>name</span>
+							<span>{user?.name}</span>
 							<FontAwesomeIcon icon={faChevronDown} />
 						</div>
 

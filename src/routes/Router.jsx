@@ -7,6 +7,7 @@ import PostDetailPage from '../pages/PostDetailPage'
 import AuthLayout from '../layouts/AuthLayout'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
+import EmailVerificationPage from '../pages/auth/EmailVerificationPage'
 
 export const router = createBrowserRouter([
 	{
@@ -71,5 +72,10 @@ export const router = createBrowserRouter([
 				<Register />
 			</AuthLayout>
 		),
+	},
+
+	{
+		path: '/email-verification',
+		element: <EmailVerificationPage />,
 	},
 ])
