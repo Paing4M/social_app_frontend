@@ -71,7 +71,7 @@ const Navbar = () => {
 				) : (
 					<Link
 						to={'/login'}
-						className='cursor-pointer flex items-center px-8 py-1 bg-color rounded-md border-none outline-none text-[16px] font-semibold text-white'
+						className='cursor-pointer hidden md:block flex items-center px-8 py-1 bg-color rounded-md border-none outline-none text-[16px] font-semibold text-white'
 					>
 						Login
 					</Link>

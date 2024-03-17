@@ -74,9 +74,12 @@ const LoginForm = () => {
 					Don't have an account?
 				</Link>
 
-				<button className='font-semibold text-sm text-color'>
+				<Link
+					to={'/forgot-password'}
+					className='font-semibold text-sm text-color'
+				>
 					Forgot password?
-				</button>
+				</Link>
 			</div>
 
 			<button

@@ -1,4 +1,8 @@
+import { useSelector } from 'react-redux'
+
 const UserProfileCard = () => {
+	const { user } = useSelector((state) => state.user)
+
 	return (
 		<div className='bg-primary rounded-md p-4 h-fit'>
 			<div className='flex items-center gap-3'>
@@ -10,7 +14,7 @@ const UserProfileCard = () => {
 					/>
 				</div>
 
-				<p className='font-bold'>Name</p>
+				<p className='font-bold'>{user?.name}</p>
 			</div>
 		</div>
 	)

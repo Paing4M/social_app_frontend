@@ -27,3 +27,14 @@ export const logoutService = async () => {
 	const res = await axiosInstance.get('/api/logout')
 	return res.data
 }
+
+export const sendResetPasswordLinkService = async (data) => {
+	// console.log(data)
+	const res = await axiosInstance.post('/api/send-reset-password-link', data)
+	return res.data
+}
+
+export const resetPasswordService = async (data) => {
+	const res = await axiosInstance.post('/api/reset-password', data)
+	return res.data
+}

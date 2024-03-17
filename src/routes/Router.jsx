@@ -8,6 +8,7 @@ import AuthLayout from '../layouts/AuthLayout'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
 import EmailVerificationPage from '../pages/auth/EmailVerificationPage'
+import ForgotPasswordPage from '../pages/auth/ForgotPasswordPage'
 
 export const router = createBrowserRouter([
 	{
@@ -63,6 +64,11 @@ export const router = createBrowserRouter([
 				<Login />
 			</AuthLayout>
 		),
+	},
+
+	{
+		path: '/forgot-password',
+		element: <ForgotPasswordPage />,
 	},
 
 	{

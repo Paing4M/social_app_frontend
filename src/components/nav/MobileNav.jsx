@@ -2,9 +2,12 @@ import React from 'react'
 import UserMenu from '../user/UserMenu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const MobileNav = ({ navOpen, setNavOpen }) => {
-	console.log(navOpen)
+	const { user } = useSelector((state) => state.user)
+
 	return (
 		<div
 			className={`fixed top-[60px] z-[1000]  ${
@@ -28,9 +31,18 @@ const MobileNav = ({ navOpen, setNavOpen }) => {
 				<hr />
 
 				<div className='pt-4 '>
-					<button className='text-lg bg-red-400 text-white w-full py-2 rounded'>
-						Logout
-					</button>
+					{user ? (
+						<button className='text-lg bg-red-400 text-white w-full py-2 rounded'>
+							Logout
+						</button>
+					) : (
+						<Link
+							to={'/login'}
+							className='inline-block text-center text-lg bg-color text-white w-full py-2 rounded'
+						>
+							Login
+						</Link>
+					)}
 				</div>
 			</div>
 		</div>
