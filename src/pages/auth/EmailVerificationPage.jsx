@@ -138,7 +138,11 @@ const EmailVerificationPage = () => {
 					</div>
 				)}
 
-				{loading && <Loader loading={loading} size={20} />}
+				{loading && (
+					<div className='flex items-center justify-between'>
+						<Loader loading={loading} size={20} />
+					</div>
+				)}
 			</>
 		)
 	}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import AuthInput from '../../components/inputs/AuthInput'
+import InputBox from '../../components/inputs/InputBox'
 import LoginForm from '../../components/form/LoginForm'
 
 const Login = () => {

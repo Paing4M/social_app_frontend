@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import AuthInput from '../inputs/AuthInput'
+import InputBox from '../inputs/InputBox'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { setLocatStorage } from '../../helpers/localStorage'
@@ -51,7 +51,7 @@ const LoginForm = () => {
 				</>
 			)}
 
-			<AuthInput
+			<InputBox
 				register={register}
 				label={'Email address'}
 				name={'email'}
@@ -60,7 +60,7 @@ const LoginForm = () => {
 				error={errors?.email?.message}
 			/>
 
-			<AuthInput
+			<InputBox
 				register={register}
 				label={'Password'}
 				name={'password'}

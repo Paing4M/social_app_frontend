@@ -38,14 +38,14 @@ export const router = createBrowserRouter([
 		),
 	},
 
-	{
-		path: '/posts/create',
-		element: (
-			<UserMainLayout>
-				<PostCreatePage />
-			</UserMainLayout>
-		),
-	},
+	// {
+	// 	path: '/posts/create',
+	// 	element: (
+	// 		<UserMainLayout>
+	// 			<PostCreatePage />
+	// 		</UserMainLayout>
+	// 	),
+	// },
 
 	{
 		path: '/categories',

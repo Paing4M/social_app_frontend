@@ -37,7 +37,7 @@ const Navbar = () => {
 					<input
 						className='flex-1 ml-2 bg-transparent outline-none border-none'
 						type='text'
-						placeholder='Search post ... '
+						placeholder='Search posts ..... '
 					/>
 				</div>
 

@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import AuthInput from '../inputs/AuthInput'
+import InputBox from '../inputs/InputBox'
 import Loader from '../Loader'
 import { resetPasswordService } from '../../services/auth'
 import { alert } from '../../helpers/alert'
@@ -52,7 +52,7 @@ const PasswordResetForm = ({ email }) => {
 					defaultValue={email}
 					{...register('email')}
 				/>
-				<AuthInput
+				<InputBox
 					error={errors?.new_password?.message}
 					type={'password'}
 					name={'new_password'}
@@ -60,7 +60,7 @@ const PasswordResetForm = ({ email }) => {
 					placeholder={'Your new password'}
 					register={register}
 				/>
-				<AuthInput
+				<InputBox
 					error={errors?.confirm_password?.message}
 					type={'password'}
 					name={'confirm_password'}

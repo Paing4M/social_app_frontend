@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import FeaturedPostCard from '../components/posts/FeaturedPostCard'
 import LatestPostCard from '../components/posts/LatestPostCard'
 import UserPostInput from '../components/posts/UserPostInput'

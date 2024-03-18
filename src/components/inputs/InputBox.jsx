@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AuthInput = ({ name, placeholder, type, label, error, register }) => {
+const InputBox = ({ name, placeholder, type, label, error, register }) => {
 	return (
 		<div className='flex flex-col mb-2'>
-			<label htmlFor='email' className='text-[15px] mb-1 inline-block'>
+			<label htmlFor='email' className='text-[15px]  inline-block'>
 				{label}
 			</label>
 			<input
@@ -18,4 +18,8 @@ const AuthInput = ({ name, placeholder, type, label, error, register }) => {
 	)
 }
 
-export default AuthInput
+InputBox.defaultProps = {
+	type: 'text',
+}
+
+export default InputBox

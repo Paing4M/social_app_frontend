@@ -16,8 +16,14 @@ axiosInstance.interceptors.request.use(
 		const token = getLocatStorage('token')
 		let headers = {
 			Accept: 'application/json',
-			'Content-Type': 'application/json',
 			Authorization: `Bearer ${token}`,
+		}
+
+		if (config.url.includes('posts') && config.method == 'post') {
+			headers = {
+				...headers,
+				'Content-Type': 'multipart/form-data',
+			}
 		}
 
 		config.headers = headers
