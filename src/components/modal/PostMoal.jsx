@@ -2,7 +2,14 @@ import { Fragment } from 'react'
 import PostCreateForm from '../form/PostCreateForm'
 import { Dialog, Transition } from '@headlessui/react'
 
-const PostMoal = ({ isOpen, closeModal }) => {
+const PostMoal = ({
+	isOpen,
+	closeModal,
+	setSuccess,
+	editId,
+	editPost,
+	loading,
+}) => {
 	return (
 		<Transition appear show={isOpen} as={Fragment}>
 			<Dialog as='div' className='relative z-10' onClose={() => {}}>
@@ -34,10 +41,15 @@ const PostMoal = ({ isOpen, closeModal }) => {
 									as='h2'
 									className='text-xl font-semibold leading-6 text-black'
 								>
-									Create post
+									{editId ? 'Edit post' : 'Create post'}
 								</Dialog.Title>
 								<div className='mt-2'>
-									<PostCreateForm closeModal={closeModal} />
+									<PostCreateForm
+										loading={loading}
+										editPost={editPost}
+										setSuccess={setSuccess}
+										closeModal={closeModal}
+									/>
 								</div>
 							</Dialog.Panel>
 						</Transition.Child>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const UserPostCard = () => {
 	return (
-		<div className='p-4 rounded-lg bg-primary'>
+		<div className='p-4 rounded-md bg-primary'>
 			<div className='flex items-center gap-4'>
 				<img
 					src='/src/assets/images/default-profile.png'
@@ -14,14 +14,17 @@ const UserPostCard = () => {
 				/>
 				<div>
 					<p className='font-semibold'>Name</p>
-					<span className='text-gray-500 text-sm'>12 , 2 , 2000</span>
+					<div className='flex items-center gap-3'>
+						<span className='text-gray-500 text-sm'>12 , 2 , 2000</span>
+						<div className='bg-color text-white text-sm rounded px-2'>
+							wallpaper
+						</div>
+					</div>
 				</div>
 			</div>
-
 			<div className='mt-2'>
 				<h2 className='font-semibold'>Header </h2>
 			</div>
-
 			<div className='mt-2'>
 				<Link to={'/posts/12'}>
 					<img
@@ -31,38 +34,40 @@ const UserPostCard = () => {
 					/>
 				</Link>
 			</div>
+			<div>
+				<div className='mt-2'>
+					<div className='flex items-center gap-3'>
+						<button>
+							<FontAwesomeIcon className='text-xl' icon={faHeart} />
+						</button>
 
-			<div className='mt-2'>
-				<div className='flex items-center gap-3'>
-					<button>
-						<FontAwesomeIcon className='text-xl' icon={faHeart} />
-					</button>
-
-					<Link to={'/posts/12'} className='cursor-pointer'>
-						<FontAwesomeIcon icon={faComment} className='text-xl' />
-					</Link>
-				</div>
-			</div>
-
-			<div className='mt-2'>
-				<div className='flex items-center gap-4'>
-					<img
-						src='/src/assets/images/default-profile.png'
-						className='w-5 h-5 rounded-full object-cover'
-						alt=''
-					/>
-					<div>
-						<p className='font-semibold text-[16px]'>Name</p>
-						<p className='text-gray-500 text-sm'>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-						</p>
+						<Link to={'/posts/12'} className='cursor-pointer'>
+							<FontAwesomeIcon icon={faComment} className='text-xl' />
+						</Link>
 					</div>
 				</div>
 
-				<div>
-					<Link className='font-semibold text-color'>
-						View all comments
-					</Link>
+				<div className='mt-2'>
+					<div className='flex items-center gap-4'>
+						<img
+							src='/src/assets/images/default-profile.png'
+							className='w-5 h-5 rounded-full object-cover'
+							alt=''
+						/>
+						<div>
+							<p className='font-semibold text-[16px]'>Name</p>
+							<p className='text-gray-500 text-sm'>
+								Lorem ipsum dolor, sit amet consectetur adipisicing
+								elit.
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<Link className='font-semibold text-color'>
+							View all comments
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>

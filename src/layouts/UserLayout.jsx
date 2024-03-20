@@ -23,22 +23,14 @@ const UserLayout = ({ children }) => {
 				<UserProfileCard />
 				<UserMenu />
 				{user ? (
-					<>
-						<div>
-							<button className='outline-none border-none bg-color py-2 px-4 w-full text-white rounded-full'>
-								Create Post
-							</button>
-						</div>
-
-						<div>
-							<button
-								onClick={logout}
-								className='outline-none border-none bg-red-400 py-2 px-4 w-full text-white rounded-full'
-							>
-								Logout
-							</button>
-						</div>
-					</>
+					<div>
+						<button
+							onClick={logout}
+							className='outline-none border-none bg-red-400 py-2 px-4 w-full text-white rounded-full'
+						>
+							Logout
+						</button>
+					</div>
 				) : (
 					<div>
 						<Link

@@ -1,10 +1,7 @@
-import { prefix } from '@fortawesome/free-brands-svg-icons'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect } from 'react'
-import { useState } from 'react'
 
-const PostImgInputBox = ({ register, previewImg }) => {
+const PostImgInputBox = ({ register, previewImg, image, error }) => {
 	return (
 		<div className='grid grid-cols-2 gap-3 items-center'>
 			<div className=' sm:grid-cols-1'>
@@ -15,12 +12,19 @@ const PostImgInputBox = ({ register, previewImg }) => {
 					</div>
 					<input type='file' id='image' hidden {...register('image')} />
 				</label>
+				{error && <p className='text-sm text-red-400'>{error}</p>}
 			</div>
 
 			<div className='grid-cols-1'>
 				{previewImg && (
 					<img
 						src={URL.createObjectURL(previewImg)}
+						className='w-full object-cover rounded-md h-[100px]'
+					/>
+				)}
+				{image && !previewImg && (
+					<img
+						src={image}
 						className='w-full object-cover rounded-md h-[100px]'
 					/>
 				)}

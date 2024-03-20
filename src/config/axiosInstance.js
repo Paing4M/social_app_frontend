@@ -19,10 +19,12 @@ axiosInstance.interceptors.request.use(
 			Authorization: `Bearer ${token}`,
 		}
 
-		if (config.url.includes('posts') && config.method == 'post') {
-			headers = {
-				...headers,
-				'Content-Type': 'multipart/form-data',
+		if (config.url.includes('posts')) {
+			if (config.method == 'post' || config.method == 'put') {
+				headers = {
+					...headers,
+					'Content-Type': 'multipart/form-data',
+				}
 			}
 		}
 
