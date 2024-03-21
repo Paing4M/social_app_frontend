@@ -6,7 +6,7 @@ import Loader from '../Loader'
 import { BeatLoader } from 'react-spinners'
 import Pagination from '../Pagination'
 
-const PostsContainer = ({ openModal, success, handleEdit }) => {
+const PostsContainer = ({ openModal, setSuccess, success, handleEdit }) => {
 	const [posts, setPosts] = useState(null)
 	const [loading, setLoading] = useState(false)
 	const [search, setSearch] = useState('')
@@ -121,6 +121,7 @@ const PostsContainer = ({ openModal, success, handleEdit }) => {
 							.map((post) => (
 								<div key={post.id}>
 									<PostCard
+										setSuccess={setSuccess}
 										handleEdit={handleEdit}
 										openModal={openModal}
 										post={post}

@@ -113,7 +113,12 @@ const PostCreateForm = ({ closeModal, setSuccess, editPost, loading }) => {
 					}`}
 				>
 					{isSubmitting ? (
-						<Loader color={'#ff'} size={20} loadingState={isSubmitting} />
+						<Loader
+							auto
+							color={'#ff'}
+							size={20}
+							loadingState={isSubmitting}
+						/>
 					) : editPost ? (
 						'Update Post'
 					) : (

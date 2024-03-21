@@ -2,13 +2,13 @@ import { createBrowserRouter } from 'react-router-dom'
 import UserMainLayout from '../layouts/UserMainLayout'
 import HomePage from '../pages/HomePage'
 import PostsPage from '../pages/PostsPage'
-import PostCreatePage from '../pages/PostCreatePage'
 import PostDetailPage from '../pages/PostDetailPage'
 import AuthLayout from '../layouts/AuthLayout'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
 import EmailVerificationPage from '../pages/auth/EmailVerificationPage'
 import ForgotPasswordPage from '../pages/auth/ForgotPasswordPage'
+import ProfilePage from '../pages/ProfilePage'
 
 export const router = createBrowserRouter([
 	{
@@ -34,6 +34,15 @@ export const router = createBrowserRouter([
 		element: (
 			<UserMainLayout>
 				<PostDetailPage />
+			</UserMainLayout>
+		),
+	},
+
+	{
+		path: '/profile',
+		element: (
+			<UserMainLayout>
+				<ProfilePage />
 			</UserMainLayout>
 		),
 	},

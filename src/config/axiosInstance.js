@@ -19,7 +19,10 @@ axiosInstance.interceptors.request.use(
 			Authorization: `Bearer ${token}`,
 		}
 
-		if (config.url.includes('posts')) {
+		if (
+			config.url.includes('posts') ||
+			config.url.includes('update-profile')
+		) {
 			if (config.method == 'post' || config.method == 'put') {
 				headers = {
 					...headers,

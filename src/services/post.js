@@ -48,3 +48,13 @@ export const getLatestPostsService = async () => {
 	const res = await axiosInstance.get('/api/get-latest-posts')
 	return res.data
 }
+
+export const deletePostService = async (id) => {
+	const res = await axiosInstance.delete('/api/posts/' + id)
+	return res.data
+}
+
+export const getPostsService = async (page) => {
+	const res = await axiosInstance.get('/api/posts?page=' + page)
+	return res.data
+}

@@ -1,7 +1,41 @@
 import { Link } from 'react-router-dom'
 import { formatDate } from '../../helpers/formatDate'
+import DeleteModal from '../modal/DeleteModal'
+import { useState } from 'react'
+import { deletePostService } from '../../services/post'
+import { alert } from '../../helpers/alert'
 
-const PostCard = ({ post, handleEdit }) => {
+const PostCard = ({ post, handleEdit, setSuccess }) => {
+	let [isOpen, setIsOpen] = useState(false)
+	const [loading, setLoading] = useState(false)
+
+	function closeModal() {
+		setIsOpen(false)
+	}
+
+	function openModal() {
+		setIsOpen(true)
+	}
+
+	const deletePost = async () => {
+		if (post) {
+			setLoading(true)
+			const res = await deletePostService(post?.id)
+			console.log(res)
+			if (res?.status == 200) {
+				setSuccess(true)
+				alert('success', res?.message)
+				setLoading(false)
+				closeModal()
+			}
+		}
+	}
+
+	const handleDelete = () => {
+		openModal()
+		setSuccess(false)
+	}
+
 	return (
 		<div className='p-4 rounded-lg bg-primary lg:min-h-[470px]'>
 			<div className='flex items-center gap-4'>
@@ -11,7 +45,7 @@ const PostCard = ({ post, handleEdit }) => {
 							? post?.user?.profile
 							: '/src/assets/images/default-profile.png'
 					}
-					className='w-7 h-7 rounded-full'
+					className='w-9 h-9 object-cover rounded-full'
 					alt=''
 				/>
 				<div>
@@ -48,7 +82,10 @@ const PostCard = ({ post, handleEdit }) => {
 			</div>
 
 			<div className='flex items-center justify-between mt-3 pt-2 border-t border-color'>
-				<button className='bg-red-400  min-w-[100px] rounded text-white px-4 py-1'>
+				<button
+					onClick={handleDelete}
+					className='bg-red-400  min-w-[100px] rounded text-white px-4 py-1'
+				>
 					Delete
 				</button>
 				<button
@@ -58,6 +95,15 @@ const PostCard = ({ post, handleEdit }) => {
 					Edit
 				</button>
 			</div>
+
+			{/* delete modal */}
+			<DeleteModal
+				loading={loading}
+				post={post}
+				deletePost={deletePost}
+				isOpen={isOpen}
+				closeModal={closeModal}
+			/>
 		</div>
 	)
 }

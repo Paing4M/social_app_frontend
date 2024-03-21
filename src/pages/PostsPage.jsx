@@ -62,6 +62,7 @@ const PostsPage = () => {
 			<div className='col-span-4  md:col-span-3 lg:col-span-3 h-fit'>
 				<div>
 					<PostsContainer
+						setSuccess={setSuccess}
 						handleEdit={handleEdit}
 						success={success}
 						openModal={openModal}

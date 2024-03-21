@@ -29,18 +29,6 @@ const Navbar = () => {
 			<div className='flex top-0 mx-auto max-w-[1300px] items-center h-[60px] border-b-2 md:border-0 justify-between px-5 relative '>
 				<h1 className='text-xl font-bold'>MySocial</h1>
 
-				<div className='border border-color w-[400px] px-4 items-center py-1 rounded-full md:flex hidden '>
-					<FontAwesomeIcon
-						className='text-gray-400'
-						icon={faMagnifyingGlass}
-					/>
-					<input
-						className='flex-1 ml-2 bg-transparent outline-none border-none'
-						type='text'
-						placeholder='Search posts ..... '
-					/>
-				</div>
-
 				{/* user info */}
 				{user ? (
 					<div className='hidden md:block dropdown dropdown-end dropdown-hover'>
@@ -50,8 +38,12 @@ const Navbar = () => {
 							className='cursor-pointer flex items-center   bg-color overflow-hidden text-white rounded-md gap-3 pr-3'
 						>
 							<img
-								src='/src/assets/images/default-profile.png'
-								className='w-[30px] h-full bg-gray-300'
+								src={
+									user?.profile
+										? user?.profile
+										: '/src/assets/images/default-profile.png'
+								}
+								className='w-[30px] object-cover h-[30px] bg-gray-300'
 								alt=''
 							/>
 

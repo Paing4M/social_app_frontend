@@ -27,7 +27,7 @@ const menuLists = [
 
 	{
 		name: 'Profile',
-		link: '/categories',
+		link: '/profile',
 		icon: <FontAwesomeIcon icon={faUser} />,
 	},
 
