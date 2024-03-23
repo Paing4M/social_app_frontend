@@ -1,10 +1,11 @@
-import { faComment } from '@fortawesome/free-regular-svg-icons'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import { formatDate } from '../../helpers/formatDate'
 
 const UserPostCard = ({ post, handleLike }) => {
+	console.log(post)
 	return (
 		<div className='p-4 rounded-md bg-primary'>
 			<div className='flex items-center gap-4'>
@@ -60,38 +61,47 @@ const UserPostCard = ({ post, handleLike }) => {
 							/>
 						</button>
 
-						<Link to={'/posts/12'} className='cursor-pointer'>
-							<FontAwesomeIcon icon={faComment} className='text-xl ' />
+						<Link to={'/posts/' + post?.id} className='cursor-pointer'>
+							<FontAwesomeIcon
+								icon={faComment}
+								className='text-gray-300 text-xl '
+							/>
 						</Link>
 					</div>
 				</div>
 
 				{/* comment */}
-				<div className='mt-2'>
-					<div className='flex items-center gap-4'>
-						<img
-							src='/src/assets/images/default-profile.png'
-							className='w-5 h-5 rounded-full object-cover'
-							alt=''
-						/>
+				{post?.latestComment && (
+					<div className='mt-2'>
+						<div className='flex items-center gap-4'>
+							<img
+								src={
+									post?.latestComment?.user?.profile ||
+									'/src/assets/images/default-profile.png'
+								}
+								className='w-7 h-7 rounded-full object-cover'
+								alt=''
+							/>
+							<div>
+								<p className='font-semibold text-[15px]'>
+									{post?.latestComment?.user?.name}
+								</p>
+								<p className='text-gray-500 text-[14px]'>
+									{post?.latestComment?.comment}
+								</p>
+							</div>
+						</div>
+
 						<div>
-							<p className='font-semibold text-[16px]'>Name</p>
-							<p className='text-gray-500 text-sm'>
-								Lorem ipsum dolor, sit amet consectetur adipisicing
-								elit.
-							</p>
+							<Link
+								to={'/posts/' + post?.id}
+								className='font-semibold text-sm text-color'
+							>
+								View all comments
+							</Link>
 						</div>
 					</div>
-
-					<div>
-						<Link
-							to={'/posts/' + post?.id}
-							className='font-semibold text-color'
-						>
-							View all comments
-						</Link>
-					</div>
-				</div>
+				)}
 			</div>
 		</div>
 	)

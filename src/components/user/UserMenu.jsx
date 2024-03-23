@@ -4,6 +4,7 @@ import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 const menuLists = [
@@ -14,15 +15,15 @@ const menuLists = [
 	},
 
 	{
-		name: 'Posts',
-		link: '/posts',
-		icon: <FontAwesomeIcon icon={faEnvelope} />,
-	},
-
-	{
 		name: 'Categories',
 		link: '/categories',
 		icon: <FontAwesomeIcon icon={faList} />,
+	},
+
+	{
+		name: 'User Posts',
+		link: '/posts',
+		icon: <FontAwesomeIcon icon={faEnvelope} />,
 	},
 
 	{
@@ -31,14 +32,16 @@ const menuLists = [
 		icon: <FontAwesomeIcon icon={faUser} />,
 	},
 
-	{
-		name: 'Settings',
-		link: '/settings',
-		icon: <FontAwesomeIcon icon={faGear} />,
-	},
+	// {
+	// 	name: 'Settings',
+	// 	link: '/settings',
+	// 	icon: <FontAwesomeIcon icon={faGear} />,
+	// },
 ]
 
 const UserMenu = ({ setNavOpen }) => {
+	const { user } = useSelector((state) => state.user)
+
 	return (
 		<div className='bg-primary rounded-md'>
 			<ul className='flex flex-col gap-y-4'>
@@ -58,6 +61,23 @@ const UserMenu = ({ setNavOpen }) => {
 							{item.icon}
 							<p className='font-semibold'>{item.name}</p>
 						</NavLink>
+
+						{user?.type == 1 && (
+							<NavLink
+								onClick={() => setNavOpen(false)}
+								to={'/user-manage'}
+								className={({ isActive }) =>
+									`flex w-full items-center rounded-md py-4 px-6 gap-3 ${
+										isActive
+											? 'bg-secondary text-color  md:rounded-r-none border-l-4 border-color'
+											: ''
+									}`
+								}
+							>
+								<FontAwesomeIcon icon={faGear} />
+								<p className='font-semibold'>Manage</p>
+							</NavLink>
+						)}
 					</li>
 				))}
 			</ul>

@@ -9,61 +9,50 @@ import Register from '../pages/auth/Register'
 import EmailVerificationPage from '../pages/auth/EmailVerificationPage'
 import ForgotPasswordPage from '../pages/auth/ForgotPasswordPage'
 import ProfilePage from '../pages/ProfilePage'
+import CategoryPage from '../pages/CategoryPage'
 
 export const router = createBrowserRouter([
 	{
-		path: '/',
-		element: (
-			<UserMainLayout>
-				<HomePage />
-			</UserMainLayout>
-		),
-	},
+		element: <UserMainLayout />,
+		children: [
+			{
+				path: '/',
+				element: <HomePage />,
+			},
 
-	{
-		path: '/posts',
-		element: (
-			<UserMainLayout>
-				<PostsPage />
-			</UserMainLayout>
-		),
-	},
+			{
+				path: '/posts',
+				element: <PostsPage />,
+			},
 
-	{
-		path: '/posts/:postId',
-		element: (
-			<UserMainLayout>
-				<PostDetailPage />
-			</UserMainLayout>
-		),
-	},
+			{
+				path: '/posts/:postId',
+				element: <PostDetailPage />,
+			},
 
-	{
-		path: '/profile',
-		element: (
-			<UserMainLayout>
-				<ProfilePage />
-			</UserMainLayout>
-		),
-	},
+			{
+				path: '/profile',
+				element: <ProfilePage />,
+			},
 
-	// {
-	// 	path: '/posts/create',
-	// 	element: (
-	// 		<UserMainLayout>
-	// 			<PostCreatePage />
-	// 		</UserMainLayout>
-	// 	),
-	// },
-
-	{
-		path: '/categories',
-		element: <UserMainLayout>Category Page</UserMainLayout>,
-	},
-
-	{
-		path: '/categories/:categoryId',
-		element: <UserMainLayout>Category Page</UserMainLayout>,
+			{
+				path: '/categories',
+				children: [
+					{
+						element: <CategoryPage />,
+						index: true,
+					},
+					// {
+					// 	path: 'all',
+					// 	element: <CategoryPage />,
+					// },
+					{
+						path: ':category',
+						element: <CategoryPage />,
+					},
+				],
+			},
+		],
 	},
 
 	{

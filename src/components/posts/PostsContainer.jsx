@@ -33,6 +33,7 @@ const PostsContainer = ({ openModal, setSuccess, success, handleEdit }) => {
 
 	const getPosts = async () => {
 		setLoading(true)
+		setSuccess(false)
 		try {
 			const res = await getUserPostsService(selectedCategory, perPage, page)
 			// console.log(res)

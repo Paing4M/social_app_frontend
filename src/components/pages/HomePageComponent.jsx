@@ -20,7 +20,7 @@ const HomePageComponent = () => {
 
 	const getPosts = async (loading) => {
 		if (loading) setLoading(true)
-		const res = await getPostsService(page)
+		const res = await getPostsService(page, '')
 		if (res?.data) {
 			setPosts(res?.data)
 			setMeta(res?.meta)

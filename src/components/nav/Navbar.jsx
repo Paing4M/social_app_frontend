@@ -25,7 +25,7 @@ const Navbar = () => {
 	}
 
 	return (
-		<div className='bg-primary sticky top-0  shadow-md'>
+		<div className='bg-primary sticky z-[1000] top-0  shadow-md'>
 			<div className='flex top-0 mx-auto max-w-[1300px] items-center h-[60px] border-b-2 md:border-0 justify-between px-5 relative '>
 				<h1 className='text-xl font-bold'>MySocial</h1>
 

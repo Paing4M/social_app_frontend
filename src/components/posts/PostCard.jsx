@@ -33,7 +33,6 @@ const PostCard = ({ post, handleEdit, setSuccess }) => {
 
 	const handleDelete = () => {
 		openModal()
-		setSuccess(false)
 	}
 
 	return (

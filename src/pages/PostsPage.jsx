@@ -48,7 +48,7 @@ const PostsPage = () => {
 			const res = await getSinglePostService(id)
 			// console.log(res)
 			if (res) {
-				setPost(res)
+				setPost(res.data)
 				setLoading(false)
 			}
 		} catch (error) {
