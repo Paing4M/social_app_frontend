@@ -5,7 +5,7 @@ import Loader from '../Loader'
 export default function DeleteModal({
 	isOpen,
 	closeModal,
-	deletePost,
+	handleDelete,
 	loading,
 }) {
 	return (
@@ -45,8 +45,8 @@ export default function DeleteModal({
 
 									<div className='mt-4'>
 										<p className='text-gray-600 leading-tight text-center'>
-											Do you really want to delete this post? This
-											process cannot be undone.
+											Do you really want to delete this? This process
+											cannot be undone.
 										</p>
 									</div>
 
@@ -58,7 +58,7 @@ export default function DeleteModal({
 											Cancle
 										</button>
 										<button
-											onClick={deletePost}
+											onClick={handleDelete}
 											className='min-w-[100px] py-1 rounded text-white bg-red-400'
 										>
 											{loading ? (

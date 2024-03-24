@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { formatDate } from '../../helpers/formatDate'
 
 const UserPostCard = ({ post, handleLike }) => {
-	console.log(post)
 	return (
 		<div className='p-4 rounded-md bg-primary'>
 			<div className='flex items-center gap-4'>
@@ -24,9 +23,12 @@ const UserPostCard = ({ post, handleLike }) => {
 						<span className='text-gray-500 text-sm'>
 							{formatDate(post?.created_at)}
 						</span>
-						<div className='bg-color text-white text-sm rounded px-2'>
+						<Link
+							to={`/categories/${post?.category}`}
+							className='bg-color inline-block text-white text-sm rounded px-2'
+						>
 							{post?.category}
-						</div>
+						</Link>
 					</div>
 				</div>
 			</div>

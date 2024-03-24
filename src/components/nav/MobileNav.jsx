@@ -15,7 +15,7 @@ const MobileNav = ({ navOpen, setNavOpen }) => {
 			} transition-all duration-100 ease-linear w-full bg-primary h-screen  block md:hidden`}
 		>
 			<div className='p-4'>
-				<div className='border border-color w-full py-4 px-6 mb-4 items-center rounded-lg font-semibold'>
+				{/* <div className='border border-color w-full py-4 px-6 mb-4 items-center rounded-lg font-semibold'>
 					<FontAwesomeIcon
 						className='text-color text-lg'
 						icon={faMagnifyingGlass}
@@ -25,7 +25,7 @@ const MobileNav = ({ navOpen, setNavOpen }) => {
 						type='text'
 						placeholder='Search post ... '
 					/>
-				</div>
+				</div> */}
 
 				<UserMenu setNavOpen={setNavOpen} />
 				<hr />

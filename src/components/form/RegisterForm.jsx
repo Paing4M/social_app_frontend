@@ -4,6 +4,7 @@ import { registerService } from '../../services/auth'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { setLocatStorage } from '../../helpers/localStorage'
+import Loader from '../Loader'
 
 const RegisterForm = () => {
 	const {
@@ -84,7 +85,11 @@ const RegisterForm = () => {
 					isSubmitting && 'opacity-60'
 				}`}
 			>
-				Login
+				{isSubmitting ? (
+					<Loader auto size={20} loadingState={isSubmitting} />
+				) : (
+					'Login'
+				)}
 			</button>
 		</form>
 	)

@@ -1,8 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Link } from 'react-router-dom'
 import 'swiper/css'
-import { useRef } from 'react'
-import { useState } from 'react'
 import { Navigation, Pagination } from 'swiper/modules'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -12,8 +9,6 @@ import { useLocation } from 'react-router-dom'
 
 const CategorySlider = ({ categories }) => {
 	const location = useLocation()
-
-	console.log(location.pathname)
 
 	const breakpoints = {
 		0: {
@@ -53,10 +48,10 @@ const CategorySlider = ({ categories }) => {
 					<SwiperSlide>
 						<NavLink
 							to='/categories'
-							className={`select-none capitalize w-full inline-block text-center bg-white/70 py-1 rounded-md ${
+							className={`select-none capitalize w-full inline-block text-center  py-1 rounded-md ${
 								location?.pathname === '/categories'
-									? 'bg-blue-500 text-primary '
-									: ''
+									? 'text-primary bg-color'
+									: 'bg-white/70'
 							}`}
 						>
 							All
@@ -67,8 +62,8 @@ const CategorySlider = ({ categories }) => {
 							<NavLink
 								to={'/categories/' + item}
 								className={({ isActive }) =>
-									`select-none capitalize w-full inline-block text-center bg-white/70 py-1 rounded-md ${
-										isActive ? 'bg-blue-500 text-primary ' : ''
+									`select-none capitalize w-full inline-block text-center  py-1 rounded-md ${
+										isActive ? 'text-primary bg-color' : 'bg-white/70'
 									}`
 								}
 							>

@@ -55,8 +55,10 @@ export const deletePostService = async (id) => {
 }
 
 export const getPostsService = async (page, category) => {
-	const res = await axiosInstance.get(
-		'/api/posts?page=' + page + '&category=' + category
-	)
+	let url = '/api/posts?page=' + page
+	if (category) {
+		url += '&category=' + category
+	}
+	const res = await axiosInstance.get(url)
 	return res.data
 }

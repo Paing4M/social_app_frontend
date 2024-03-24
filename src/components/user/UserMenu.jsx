@@ -31,12 +31,6 @@ const menuLists = [
 		link: '/profile',
 		icon: <FontAwesomeIcon icon={faUser} />,
 	},
-
-	// {
-	// 	name: 'Settings',
-	// 	link: '/settings',
-	// 	icon: <FontAwesomeIcon icon={faGear} />,
-	// },
 ]
 
 const UserMenu = ({ setNavOpen }) => {
@@ -61,25 +55,27 @@ const UserMenu = ({ setNavOpen }) => {
 							{item.icon}
 							<p className='font-semibold'>{item.name}</p>
 						</NavLink>
-
-						{user?.type == 1 && (
-							<NavLink
-								onClick={() => setNavOpen(false)}
-								to={'/user-manage'}
-								className={({ isActive }) =>
-									`flex w-full items-center rounded-md py-4 px-6 gap-3 ${
-										isActive
-											? 'bg-secondary text-color  md:rounded-r-none border-l-4 border-color'
-											: ''
-									}`
-								}
-							>
-								<FontAwesomeIcon icon={faGear} />
-								<p className='font-semibold'>Manage</p>
-							</NavLink>
-						)}
 					</li>
 				))}
+
+				<li>
+					{user?.type == 1 && (
+						<NavLink
+							onClick={() => setNavOpen(false)}
+							to={'/user-manage'}
+							className={({ isActive }) =>
+								`flex w-full items-center rounded-md py-4 px-6 gap-3 ${
+									isActive
+										? 'bg-secondary text-color  md:rounded-r-none border-l-4 border-color'
+										: ''
+								}`
+							}
+						>
+							<FontAwesomeIcon icon={faGear} />
+							<p className='font-semibold'>User Manage</p>
+						</NavLink>
+					)}
+				</li>
 			</ul>
 		</div>
 	)

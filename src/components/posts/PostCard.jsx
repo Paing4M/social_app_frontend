@@ -53,9 +53,12 @@ const PostCard = ({ post, handleEdit, setSuccess }) => {
 						<span className='text-gray-500 text-[13px]'>
 							{formatDate(post?.created_at)}
 						</span>
-						<div className='bg-color text-white text-[12px] rounded px-2'>
+						<Link
+							to={`/categories/${post?.category}`}
+							className='bg-color text-white text-[12px] rounded px-2'
+						>
 							{post?.category}
-						</div>
+						</Link>
 					</div>
 				</div>
 			</div>
@@ -99,7 +102,7 @@ const PostCard = ({ post, handleEdit, setSuccess }) => {
 			<DeleteModal
 				loading={loading}
 				post={post}
-				deletePost={deletePost}
+				handleDelete={deletePost}
 				isOpen={isOpen}
 				closeModal={closeModal}
 			/>

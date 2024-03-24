@@ -20,7 +20,7 @@ const UserLayout = ({ children }) => {
 	return (
 		<div className='grid grid-cols-4 gap-4'>
 			<div className='hidden md:flex lg:col-span-1 flex-col gap-4 h-fit '>
-				<UserProfileCard />
+				{user && <UserProfileCard />}
 				<UserMenu />
 				{user ? (
 					<div>

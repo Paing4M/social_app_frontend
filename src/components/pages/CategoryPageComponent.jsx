@@ -8,6 +8,7 @@ import Loader from '../Loader'
 import { useSelector } from 'react-redux'
 import Pagination from '../Pagination'
 import { likeService } from '../../services/like'
+import { alert } from '../../helpers/alert'
 
 const CategoryPageComponent = () => {
 	const { user } = useSelector((state) => state.user)
@@ -17,8 +18,6 @@ const CategoryPageComponent = () => {
 	const { category } = useParams()
 	const [meta, setMeta] = useState(null)
 	const [page, setPage] = useState(1)
-
-	console.log(category)
 
 	const totalPages = Math.ceil(meta?.total / meta?.per_page)
 	const handlePageChange = (data) => {
@@ -46,7 +45,7 @@ const CategoryPageComponent = () => {
 
 	const getPosts = async (loading) => {
 		if (loading) setLoading(true)
-		const res = await getPostsService(page, category ? category : '')
+		const res = await getPostsService(page, category)
 		if (res?.data) {
 			setPosts(res?.data)
 			setMeta(res?.meta)
@@ -67,7 +66,7 @@ const CategoryPageComponent = () => {
 
 	return (
 		<div className='w-full flex flex-col gap-4'>
-			<CategoryLists categories={categories} loading={loading} />
+			<CategoryLists categories={categories} />
 
 			{loading && <Loader loadingState={loading} size={30} auto />}
 

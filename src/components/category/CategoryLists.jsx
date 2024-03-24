@@ -1,7 +1,7 @@
 import CategorySlider from './CategorySlider'
 
-const CategoryLists = ({ categories, loading }) => {
-	return <div>{!loading && <CategorySlider categories={categories} />}</div>
+const CategoryLists = ({ categories }) => {
+	return <div>{categories && <CategorySlider categories={categories} />}</div>
 }
 
 export default CategoryLists

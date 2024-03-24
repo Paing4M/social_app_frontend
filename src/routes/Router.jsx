@@ -10,6 +10,7 @@ import EmailVerificationPage from '../pages/auth/EmailVerificationPage'
 import ForgotPasswordPage from '../pages/auth/ForgotPasswordPage'
 import ProfilePage from '../pages/ProfilePage'
 import CategoryPage from '../pages/CategoryPage'
+import UserManagementPage from '../pages/UserManagementPage'
 
 export const router = createBrowserRouter([
 	{
@@ -33,6 +34,11 @@ export const router = createBrowserRouter([
 			{
 				path: '/profile',
 				element: <ProfilePage />,
+			},
+
+			{
+				path: '/user-manage',
+				element: <UserManagementPage />,
 			},
 
 			{
